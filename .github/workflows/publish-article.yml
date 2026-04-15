@@ -1,0 +1,33 @@
+name: Publish Daily Article
+
+on:
+  schedule:
+    - cron: '0 14 * * *'  # Runs daily at 2:00 PM UTC (9:00 AM Eastern)
+  workflow_dispatch:        # Allows manual trigger from GitHub
+
+jobs:
+  generate-article:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install @anthropic-ai/sdk @supabase/supabase-js
+
+      - name: Generate and publish article
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: node scripts/generate-article.js
+
+      - name: Trigger Vercel redeploy
+        run: |
+          curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
