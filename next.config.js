@@ -1,13 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      'pbs.twimg.com',
-      'abs.twimg.com',
-      'instagram.com',
-      'cdninstagram.com',
-      'fbcdn.net',
-      'ifzkckewwjbiwzymbutw.supabase.co'
+    remotePatterns: [
+      { protocol: 'https', hostname: 'pbs.twimg.com' },
+      { protocol: 'https', hostname: 'abs.twimg.com' },
+      { protocol: 'https', hostname: 'cdninstagram.com' },
+      { protocol: 'https', hostname: 'fbcdn.net' },
+      { protocol: 'https', hostname: 'ifzkckewwjbiwzymbutw.supabase.co' },
     ],
   },
 }
