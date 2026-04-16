@@ -1,0 +1,4 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm install next@latest && npm run build"
+}
