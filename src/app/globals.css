@@ -8,16 +8,6 @@
   --accent: #003F8A;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: var(--font-dm-sans);
   line-height: 1.6;
@@ -25,14 +15,11 @@ body {
   background: #ffffff;
 }
 
-/* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-dm-sans);
   font-weight: 700;
   line-height: 1.2;
 }
 
-/* Article content styling */
 .article-content h2 {
   font-size: 1.5rem;
   font-weight: 700;
@@ -81,7 +68,6 @@ h1, h2, h3, h4, h5, h6 {
   font-style: italic;
 }
 
-/* Card hover effects */
 .article-card {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -91,7 +77,6 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* Category badge */
 .category-badge {
   display: inline-block;
   background: #003F8A;
@@ -102,15 +87,4 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.08em;
   padding: 0.25rem 0.6rem;
   border-radius: 4px;
-}
-
-/* Embed placeholder */
-.embed-placeholder {
-  background: #f3f4f6;
-  border: 2px dashed #d1d5db;
-  border-radius: 8px;
-  padding: 2rem;
-  text-align: center;
-  color: #6b7280;
-  margin: 1.5rem 0;
 }
