@@ -98,7 +98,7 @@ OUTPUT FORMAT — return only valid JSON, no markdown, no explanation:
   "title": "Article title here",
   "slug": "url-friendly-slug-here",
   "excerpt": "One sentence summary under 160 characters",
-  "content": "<p>Full HTML article content here with h2, h3, p, ul, li tags. Minimum 600 words. Include [EMBED OFFICIAL SOCIAL POST HERE] placeholder where a social media image would go.</p>",
+  "content": "<p>Full HTML article content here with h2, h3, p, ul, li tags. Minimum 600 words. Do not include any image placeholders or embed placeholders.</p>",
   "meta_title": "SEO meta title under 60 characters",
   "meta_desc": "SEO meta description under 155 characters",
   "keywords": ["keyword1", "keyword2", "keyword3", "keyword4", "keyword5"]
