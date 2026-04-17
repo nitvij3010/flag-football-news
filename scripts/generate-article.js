@@ -111,7 +111,8 @@ OUTPUT FORMAT — return only valid JSON, no markdown, no explanation:
   })
 
   const responseText = message.content[0].text.trim()
-  const articleData = JSON.parse(responseText)
+  const cleaned = responseText.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```\s*$/i, '').trim()
+  const articleData = JSON.parse(cleaned)
 
   const slug = articleData.slug || slugify(articleData.title)
   const readTime = estimateReadTime(articleData.content)
