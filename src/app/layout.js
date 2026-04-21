@@ -52,10 +52,14 @@ export default function RootLayout({ children }) {
           <div className="max-w-7xl mx-auto px-4 text-center">
             <p className="mb-2">© {new Date().getFullYear()} Flag Football News. All rights reserved.</p>
             <p>Coverage of USA flag football leagues, tournaments, and high school flag football.</p>
-            <div className="mt-4 flex justify-center gap-6">
+            <div className="mt-4 flex flex-wrap justify-center gap-6">
               <a href="/about" className="hover:text-white transition">About</a>
+              <a href="/contact" className="hover:text-white transition">Contact</a>
+              <a href="/editorial" className="hover:text-white transition">Editorial Policy</a>
+              <a href="/faq" className="hover:text-white transition">FAQ</a>
+              <a href="/privacy" className="hover:text-white transition">Privacy Policy</a>
+              <a href="/terms" className="hover:text-white transition">Terms of Service</a>
               <a href="/sitemap.xml" className="hover:text-white transition">Sitemap</a>
-              <a href="/privacy" className="hover:text-white transition">Privacy</a>
             </div>
           </div>
         </footer>
