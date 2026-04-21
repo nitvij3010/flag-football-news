@@ -53,7 +53,7 @@ const faqs = [
   },
   {
     question: 'How do I submit a story tip to Flag Football News?',
-    answer: 'We love hearing from the flag football community! If you have a story tip, game result, or player to spotlight, email us at editorial@flagfootballnews.com. We cover flag football at every level across the USA.',
+    answer: 'We love hearing from the flag football community! If you have a story tip, game result, or player to spotlight, email us at theflagfootballhub@gmail.com. We cover flag football at every level across the USA.',
   },
 ]
 

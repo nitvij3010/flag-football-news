@@ -78,7 +78,7 @@ export default function PrivacyPage() {
         <section>
           <h2 className="text-xl font-bold text-gray-900 mb-3">10. Contact Us</h2>
           <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-          <p className="mt-2"><strong>Email:</strong> privacy@flagfootballnews.com</p>
+          <p className="mt-2"><strong>Email:</strong> theflagfootballhub@gmail.com</p>
           <p><strong>Website:</strong> flagfootballnews.com/contact</p>
         </section>
 

@@ -50,7 +50,7 @@ export default function EditorialPage() {
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 mb-3">Corrections Policy</h2>
-          <p>If you spot an error in any of our articles, please contact us at <strong>editorial@flagfootballnews.com</strong>. We review all correction requests and update articles promptly when errors are confirmed. Significant corrections are noted at the bottom of the affected article.</p>
+          <p>If you spot an error in any of our articles, please contact us at <strong>theflagfootballhub@gmail.com</strong>. We review all correction requests and update articles promptly when errors are confirmed. Significant corrections are noted at the bottom of the affected article.</p>
         </section>
 
         <section>
@@ -61,7 +61,7 @@ export default function EditorialPage() {
         <section>
           <h2 className="text-xl font-bold text-gray-900 mb-3">Contact Our Editorial Team</h2>
           <p>For story tips, corrections, or editorial inquiries:</p>
-          <p className="mt-2"><strong>Email:</strong> editorial@flagfootballnews.com</p>
+          <p className="mt-2"><strong>Email:</strong> theflagfootballhub@gmail.com</p>
           <p><strong>Contact Form:</strong> <a href="/contact" className="text-[#003F8A] underline">flagfootballnews.com/contact</a></p>
         </section>
 
