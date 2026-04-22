@@ -1,7 +1,7 @@
 import { supabase } from '@/lib/supabase'
 
 export default async function sitemap() {
-  const baseUrl = 'https://www.flagfootballnews.com'
+  const baseUrl = 'https://www.theflagfootballhub.com'
 
   // Static pages
   const staticPages = [

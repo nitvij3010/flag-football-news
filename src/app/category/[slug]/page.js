@@ -57,7 +57,7 @@ export async function generateMetadata({ params }) {
     title: `${config.title} | Flag Football News`,
     description: config.description,
     alternates: {
-      canonical: `https://www.flagfootballnews.com/category/${params.slug}`,
+      canonical: `https://www.theflagfootballhub.com/category/${params.slug}`,
     },
   }
 }

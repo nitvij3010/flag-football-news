@@ -2,7 +2,7 @@ export const metadata = {
   title: 'Contact Us | Flag Football News',
   description: 'Get in touch with the Flag Football News team. Send us tips, story ideas, or corrections.',
   alternates: {
-    canonical: 'https://www.flagfootballnews.com/contact',
+    canonical: 'https://www.theflagfootballhub.com/contact',
   },
 }
 

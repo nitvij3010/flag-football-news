@@ -2,7 +2,7 @@ export const metadata = {
   title: 'Privacy Policy | Flag Football News',
   description: 'Privacy Policy for Flag Football News. Learn how we collect, use, and protect your data.',
   alternates: {
-    canonical: 'https://www.flagfootballnews.com/privacy',
+    canonical: 'https://www.theflagfootballhub.com/privacy',
   },
 }
 
@@ -16,7 +16,7 @@ export default function PrivacyPage() {
 
         <section>
           <h2 className="text-xl font-bold text-gray-900 mb-3">1. Introduction</h2>
-          <p>Flag Football News ("we," "us," or "our") operates flagfootballnews.com. This Privacy Policy explains how we collect, use, and protect information when you visit our website. By using our site, you agree to the terms of this policy.</p>
+          <p>Flag Football News ("we," "us," or "our") operates theflagfootballhub.com. This Privacy Policy explains how we collect, use, and protect information when you visit our website. By using our site, you agree to the terms of this policy.</p>
         </section>
 
         <section>
@@ -79,7 +79,7 @@ export default function PrivacyPage() {
           <h2 className="text-xl font-bold text-gray-900 mb-3">10. Contact Us</h2>
           <p>If you have any questions about this Privacy Policy, please contact us at:</p>
           <p className="mt-2"><strong>Email:</strong> theflagfootballhub@gmail.com</p>
-          <p><strong>Website:</strong> flagfootballnews.com/contact</p>
+          <p><strong>Website:</strong> theflagfootballhub.com/contact</p>
         </section>
 
       </div>

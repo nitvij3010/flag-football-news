@@ -2,7 +2,7 @@ export const metadata = {
   title: 'About Us | Flag Football News',
   description: 'Learn about Flag Football News — the leading source for USA flag football coverage, tournament news, and high school flag football updates.',
   alternates: {
-    canonical: 'https://www.flagfootballnews.com/about',
+    canonical: 'https://www.theflagfootballhub.com/about',
   },
 }
 

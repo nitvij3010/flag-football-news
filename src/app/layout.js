@@ -16,7 +16,7 @@ const dmMono = DM_Mono({
 export const metadata = {
   title: 'Flag Football News | USA Flag Football Updates',
   description: 'The latest flag football news, tournament updates, match reports, and league coverage across the USA. Your #1 source for flag football.',
-  metadataBase: new URL('https://www.flagfootballnews.com'),
+  metadataBase: new URL('https://www.theflagfootballhub.com'),
   alternates: {
     canonical: '/',
   },

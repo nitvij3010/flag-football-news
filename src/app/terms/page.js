@@ -2,7 +2,7 @@ export const metadata = {
   title: 'Terms of Service | Flag Football News',
   description: 'Terms of Service for Flag Football News. Read our terms before using our website.',
   alternates: {
-    canonical: 'https://www.flagfootballnews.com/terms',
+    canonical: 'https://www.theflagfootballhub.com/terms',
   },
 }
 

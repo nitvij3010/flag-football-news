@@ -7,7 +7,7 @@ export default function robots() {
         disallow: ['/api/', '/_next/'],
       },
     ],
-    sitemap: 'https://www.flagfootballnews.com/sitemap.xml',
-    host: 'https://www.flagfootballnews.com',
+    sitemap: 'https://www.theflagfootballhub.com/sitemap.xml',
+    host: 'https://www.theflagfootballhub.com',
   }
 }

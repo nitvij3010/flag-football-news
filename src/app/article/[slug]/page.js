@@ -24,7 +24,7 @@ export async function generateMetadata({ params }) {
     description: article.meta_desc || article.excerpt,
     keywords: article.keywords?.join(', '),
     alternates: {
-      canonical: `https://www.flagfootballnews.com/article/${article.slug}`,
+      canonical: `https://www.theflagfootballhub.com/article/${article.slug}`,
     },
     openGraph: {
       title: article.meta_title || article.title,
@@ -60,7 +60,7 @@ export default async function ArticlePage({ params }) {
     publisher: {
       '@type': 'Organization',
       name: 'Flag Football News',
-      url: 'https://www.flagfootballnews.com',
+      url: 'https://www.theflagfootballhub.com',
     },
   }
 

@@ -2,7 +2,7 @@ export const metadata = {
   title: 'Flag Football FAQ | Frequently Asked Questions | Flag Football News',
   description: 'Answers to the most common questions about flag football — rules, leagues, high school programs, and the 2028 Olympics.',
   alternates: {
-    canonical: 'https://www.flagfootballnews.com/faq',
+    canonical: 'https://www.theflagfootballhub.com/faq',
   },
 }
 

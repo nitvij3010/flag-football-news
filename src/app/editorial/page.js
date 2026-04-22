@@ -2,7 +2,7 @@ export const metadata = {
   title: 'Editorial Policy | Flag Football News',
   description: 'Learn how Flag Football News researches, writes, and fact-checks our flag football coverage.',
   alternates: {
-    canonical: 'https://www.flagfootballnews.com/editorial',
+    canonical: 'https://www.theflagfootballhub.com/editorial',
   },
 }
 
@@ -62,7 +62,7 @@ export default function EditorialPage() {
           <h2 className="text-xl font-bold text-gray-900 mb-3">Contact Our Editorial Team</h2>
           <p>For story tips, corrections, or editorial inquiries:</p>
           <p className="mt-2"><strong>Email:</strong> theflagfootballhub@gmail.com</p>
-          <p><strong>Contact Form:</strong> <a href="/contact" className="text-[#003F8A] underline">flagfootballnews.com/contact</a></p>
+          <p><strong>Contact Form:</strong> <a href="/contact" className="text-[#003F8A] underline">theflagfootballhub.com/contact</a></p>
         </section>
 
       </div>
