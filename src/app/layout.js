@@ -1,6 +1,7 @@
 import { DM_Sans, DM_Mono } from 'next/font/google'
 import './globals.css'
 import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/react'
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -64,6 +65,7 @@ export default function RootLayout({ children }) {
         <main className="min-h-screen">
           {children}
         </main>
+        <Analytics />
         <footer className="bg-gray-900 text-gray-400 text-sm py-10 mt-16">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <p className="mb-2">© {new Date().getFullYear()} Flag Football News. All rights reserved.</p>
