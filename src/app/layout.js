@@ -20,6 +20,9 @@ export const metadata = {
   alternates: {
     canonical: '/',
   },
+  verification: {
+    google: 'XVbOmpmac4Zq_UjqN1o1ffQIsPtl31Xajg4MaXxXRp0',
+  },
   openGraph: {
     siteName: 'Flag Football News',
     type: 'website',
