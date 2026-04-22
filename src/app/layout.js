@@ -1,5 +1,6 @@
 import { DM_Sans, DM_Mono } from 'next/font/google'
 import './globals.css'
+import Script from 'next/script'
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -30,6 +31,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en-US">
       <body className={`${dmSans.variable} ${dmMono.variable} font-sans bg-white text-gray-900`}>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-QR478VP32J"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-QR478VP32J');
+          `}
+        </Script>
         <header className="bg-[#003F8A] text-white shadow-md">
           <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
             <a href="/" className="text-2xl font-bold tracking-tight">
