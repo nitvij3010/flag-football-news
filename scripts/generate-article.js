@@ -33,36 +33,40 @@ const authors = [
   },
 ]
 
-// Each topic is paired with its correct category
 const topicPool = [
   // Match Reports
   { category: 'Match Reports', topic: 'Write a match report about a girls high school flag football championship game in Texas' },
   { category: 'Match Reports', topic: 'Write a match report about an NFL FLAG regional championship tournament in Florida' },
   { category: 'Match Reports', topic: 'Write a match report about a USA Football national flag football tournament final' },
   { category: 'Match Reports', topic: 'Write a match report about a girls varsity flag football rivalry game in California' },
+  { category: 'Match Reports', topic: 'Write a match report about a girls high school flag football playoff game in Georgia' },
 
   // Tournament News
   { category: 'Tournament News', topic: 'Write about an upcoming NFL FLAG national championship tournament and what to expect' },
   { category: 'Tournament News', topic: 'Write about a major girls flag football tournament happening in Las Vegas Nevada' },
   { category: 'Tournament News', topic: 'Write about the USA Football flag football national championship tournament schedule' },
   { category: 'Tournament News', topic: 'Write about a spring flag football tournament series for high school girls across the South' },
+  { category: 'Tournament News', topic: 'Write about a flag football tournament in Miami Florida attracting teams from across the country' },
 
   // Olympic 2028
   { category: 'Olympic 2028', topic: 'Write about flag football\'s inclusion in the 2028 Los Angeles Olympics and what it means for the sport' },
   { category: 'Olympic 2028', topic: 'Write about the USA national flag football team preparing for the 2028 Olympics' },
   { category: 'Olympic 2028', topic: 'Write about how the 2028 Olympics is driving growth in youth flag football programs across the USA' },
+  { category: 'Olympic 2028', topic: 'Write about which countries are favorites to win gold in flag football at the 2028 Los Angeles Olympics' },
 
   // Player Spotlight
   { category: 'Player Spotlight', topic: 'Write a player spotlight on a standout girls high school flag football quarterback in Florida' },
   { category: 'Player Spotlight', topic: 'Write a player spotlight on a top girls flag football wide receiver in Texas high schools' },
   { category: 'Player Spotlight', topic: 'Write a player spotlight on a rising NFL FLAG youth flag football star in California' },
   { category: 'Player Spotlight', topic: 'Write a player spotlight on a college-bound girls flag football player from Georgia' },
+  { category: 'Player Spotlight', topic: 'Write a player spotlight on a dominant girls flag football defensive player in Nevada' },
 
   // Rules & How To Play
   { category: 'Rules & How To Play', topic: 'Write a beginner\'s guide explaining the basic rules of flag football for new players' },
   { category: 'Rules & How To Play', topic: 'Write about the key differences between flag football rules and tackle football rules' },
   { category: 'Rules & How To Play', topic: 'Write a guide on flag football positions and what each player does on the field' },
   { category: 'Rules & How To Play', topic: 'Write a guide on flag football scoring rules, penalties, and how games are officiated' },
+  { category: 'Rules & How To Play', topic: 'Write a guide on how to choose the right flag football equipment for beginners' },
 
   // USA League News
   { category: 'USA League News', topic: 'Write about the growth of girls flag football leagues in Texas high schools in 2026' },
@@ -70,6 +74,7 @@ const topicPool = [
   { category: 'USA League News', topic: 'Write about adult flag football league growth in major US cities like Miami and Atlanta' },
   { category: 'USA League News', topic: 'Write about a state high school athletic association adding girls flag football as an official varsity sport' },
   { category: 'USA League News', topic: 'Write about NFL teams supporting local flag football leagues in their home cities' },
+  { category: 'USA League News', topic: 'Write about flag football league growth in the Pacific Northwest including Seattle and Portland' },
 ]
 
 function slugify(text) {
@@ -88,14 +93,36 @@ function estimateReadTime(content) {
   return Math.max(3, Math.ceil(wordCount / 200))
 }
 
+async function getRecentArticles() {
+  const { data } = await supabase
+    .from('articles')
+    .select('title, category, slug')
+    .order('published_at', { ascending: false })
+    .limit(10)
+  return data || []
+}
+
+function pickBestTopic(recentArticles) {
+  const recentCategories = recentArticles.slice(0, 3).map(a => a.category)
+  const shuffled = [...topicPool].sort(() => Math.random() - 0.5)
+
+  // Prefer a category not used in the last 3 articles
+  const freshTopic = shuffled.find(t => !recentCategories.includes(t.category))
+  return freshTopic || shuffled[0]
+}
+
 async function generateArticle() {
   const author = getRandomItem(authors)
-  const topicItem = getRandomItem(topicPool)
+
+  // Get recent articles to avoid category repetition
+  const recentArticles = await getRecentArticles()
+  const topicItem = pickBestTopic(recentArticles)
   const category = topicItem.category
   const topic = topicItem.topic
 
   console.log(`Generating article: ${topic}`)
   console.log(`Category: ${category}`)
+  console.log(`Last 3 categories used: ${recentArticles.slice(0,3).map(a => a.category).join(', ')}`)
 
   const prompt = `You are an American sports journalist writing for TheFlagFootballHub.com, a USA-focused flag football news website.
 
@@ -112,6 +139,7 @@ STRICT RULES:
 - Write in the voice of an American sports journalist
 - Girls high school flag football should be mentioned when relevant
 - Minimum 600 words
+- Use a UNIQUE angle and title — do not repeat generic titles like "Rising Star" or "Opportunities for Girls"
 
 OUTPUT FORMAT — return only valid JSON, no markdown, no explanation:
 {
@@ -135,6 +163,19 @@ OUTPUT FORMAT — return only valid JSON, no markdown, no explanation:
   const articleData = JSON.parse(cleaned)
 
   const slug = articleData.slug || slugify(articleData.title)
+
+  // Check for duplicate slug before inserting
+  const { data: existing } = await supabase
+    .from('articles')
+    .select('id')
+    .eq('slug', slug)
+    .single()
+
+  if (existing) {
+    console.log(`Duplicate article detected (slug: ${slug}). Skipping.`)
+    process.exit(0)
+  }
+
   const readTime = estimateReadTime(articleData.content)
 
   const { error } = await supabase.from('articles').insert({
