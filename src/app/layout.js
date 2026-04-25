@@ -75,6 +75,7 @@ export default function RootLayout({ children }) {
             <p className="mb-2">© {new Date().getFullYear()} Flag Football News. All rights reserved.</p>
             <p>Coverage of USA flag football leagues, tournaments, and high school flag football.</p>
             <div className="mt-4 flex flex-wrap justify-center gap-6">
+              <a href="/leagues" className="hover:text-white transition">Find Leagues</a>
               <a href="/about" className="hover:text-white transition">About</a>
               <a href="/contact" className="hover:text-white transition">Contact</a>
               <a href="/editorial" className="hover:text-white transition">Editorial Policy</a>
