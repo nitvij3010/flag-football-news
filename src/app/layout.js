@@ -2,6 +2,7 @@ import { DM_Sans, DM_Mono } from 'next/font/google'
 import './globals.css'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/react'
+import MobileMenu from '@/components/MobileMenu'
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -52,6 +53,7 @@ export default function RootLayout({ children }) {
             <a href="/" className="text-2xl font-bold tracking-tight">
               🏈 Flag Football News
             </a>
+            {/* Desktop nav */}
             <nav className="hidden md:flex gap-6 text-sm font-medium">
               <a href="/category/match-reports" className="hover:text-yellow-300 transition">Match Reports</a>
               <a href="/category/tournament-news" className="hover:text-yellow-300 transition">Tournaments</a>
@@ -60,6 +62,8 @@ export default function RootLayout({ children }) {
               <a href="/category/usa-league-news" className="hover:text-yellow-300 transition">Leagues</a>
               <a href="/category/rules-how-to-play" className="hover:text-yellow-300 transition">Rules</a>
             </nav>
+            {/* Mobile hamburger */}
+            <MobileMenu />
           </div>
         </header>
         <main className="min-h-screen">
