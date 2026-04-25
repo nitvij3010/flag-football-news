@@ -33,26 +33,43 @@ const authors = [
   },
 ]
 
-const categories = [
-  'Match Reports',
-  'Tournament News',
-  'Olympic 2028',
-  'Player Spotlight',
-  'Rules & How To Play',
-  'USA League News',
-]
+// Each topic is paired with its correct category
+const topicPool = [
+  // Match Reports
+  { category: 'Match Reports', topic: 'Write a match report about a girls high school flag football championship game in Texas' },
+  { category: 'Match Reports', topic: 'Write a match report about an NFL FLAG regional championship tournament in Florida' },
+  { category: 'Match Reports', topic: 'Write a match report about a USA Football national flag football tournament final' },
+  { category: 'Match Reports', topic: 'Write a match report about a girls varsity flag football rivalry game in California' },
 
-const topicPrompts = [
-  'Write about a recent girls high school flag football tournament in Texas',
-  'Write about NFL FLAG youth league updates in California',
-  'Write about flag football being included in the 2028 Los Angeles Olympics',
-  'Write about a top girls high school flag football player to watch',
-  'Write about how flag football rules differ from tackle football for beginners',
-  'Write about flag football league growth in Florida high schools',
-  'Write about a USA Football national flag football championship',
-  'Write about flag football opportunities for girls in the Midwest',
-  'Write about NFL teams supporting local flag football leagues',
-  'Write about flag football equipment and gear guide for beginners',
+  // Tournament News
+  { category: 'Tournament News', topic: 'Write about an upcoming NFL FLAG national championship tournament and what to expect' },
+  { category: 'Tournament News', topic: 'Write about a major girls flag football tournament happening in Las Vegas Nevada' },
+  { category: 'Tournament News', topic: 'Write about the USA Football flag football national championship tournament schedule' },
+  { category: 'Tournament News', topic: 'Write about a spring flag football tournament series for high school girls across the South' },
+
+  // Olympic 2028
+  { category: 'Olympic 2028', topic: 'Write about flag football\'s inclusion in the 2028 Los Angeles Olympics and what it means for the sport' },
+  { category: 'Olympic 2028', topic: 'Write about the USA national flag football team preparing for the 2028 Olympics' },
+  { category: 'Olympic 2028', topic: 'Write about how the 2028 Olympics is driving growth in youth flag football programs across the USA' },
+
+  // Player Spotlight
+  { category: 'Player Spotlight', topic: 'Write a player spotlight on a standout girls high school flag football quarterback in Florida' },
+  { category: 'Player Spotlight', topic: 'Write a player spotlight on a top girls flag football wide receiver in Texas high schools' },
+  { category: 'Player Spotlight', topic: 'Write a player spotlight on a rising NFL FLAG youth flag football star in California' },
+  { category: 'Player Spotlight', topic: 'Write a player spotlight on a college-bound girls flag football player from Georgia' },
+
+  // Rules & How To Play
+  { category: 'Rules & How To Play', topic: 'Write a beginner\'s guide explaining the basic rules of flag football for new players' },
+  { category: 'Rules & How To Play', topic: 'Write about the key differences between flag football rules and tackle football rules' },
+  { category: 'Rules & How To Play', topic: 'Write a guide on flag football positions and what each player does on the field' },
+  { category: 'Rules & How To Play', topic: 'Write a guide on flag football scoring rules, penalties, and how games are officiated' },
+
+  // USA League News
+  { category: 'USA League News', topic: 'Write about the growth of girls flag football leagues in Texas high schools in 2026' },
+  { category: 'USA League News', topic: 'Write about NFL FLAG youth league expansion into new cities across the USA' },
+  { category: 'USA League News', topic: 'Write about adult flag football league growth in major US cities like Miami and Atlanta' },
+  { category: 'USA League News', topic: 'Write about a state high school athletic association adding girls flag football as an official varsity sport' },
+  { category: 'USA League News', topic: 'Write about NFL teams supporting local flag football leagues in their home cities' },
 ]
 
 function slugify(text) {
@@ -73,12 +90,14 @@ function estimateReadTime(content) {
 
 async function generateArticle() {
   const author = getRandomItem(authors)
-  const category = getRandomItem(categories)
-  const topic = getRandomItem(topicPrompts)
+  const topicItem = getRandomItem(topicPool)
+  const category = topicItem.category
+  const topic = topicItem.topic
 
   console.log(`Generating article: ${topic}`)
+  console.log(`Category: ${category}`)
 
-  const prompt = `You are an American sports journalist writing for FlagFootballNews.com, a USA-focused flag football news website.
+  const prompt = `You are an American sports journalist writing for TheFlagFootballHub.com, a USA-focused flag football news website.
 
 Write a complete, SEO-optimized news article about the following topic:
 "${topic}"
@@ -89,9 +108,10 @@ STRICT RULES:
 - Format all dates as Month Day, Year (example: April 15, 2026)
 - Reference real organizations like USA Football, NFL FLAG, or IFAF where relevant
 - Target long-tail keywords naturally (example: "girls flag football leagues in Texas")
-- Category for this article: ${category}
+- This article belongs in the "${category}" category — make sure the content matches this category exactly
 - Write in the voice of an American sports journalist
 - Girls high school flag football should be mentioned when relevant
+- Minimum 600 words
 
 OUTPUT FORMAT — return only valid JSON, no markdown, no explanation:
 {
