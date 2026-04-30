@@ -55,9 +55,10 @@ export default function RootLayout({ children }) {
               <Image
                 src="/logo.svg"
                 alt="The Flag Football Hub"
-                width={160}
-                height={60}
+                width={180}
+                height={68}
                 priority
+                className="rounded-lg"
               />
             </a>
             {/* Desktop nav */}
