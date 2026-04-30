@@ -58,7 +58,7 @@ export default function RootLayout({ children }) {
                 width={180}
                 height={68}
                 priority
-                className="rounded-lg"
+                
               />
             </a>
             {/* Desktop nav */}
