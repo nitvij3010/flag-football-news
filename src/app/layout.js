@@ -1,4 +1,5 @@
 import { DM_Sans, DM_Mono } from 'next/font/google'
+import Image from 'next/image'
 import './globals.css'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/react'
@@ -50,8 +51,14 @@ export default function RootLayout({ children }) {
         </Script>
         <header className="bg-[#003F8A] text-white shadow-md">
           <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" className="text-2xl font-bold tracking-tight">
-              🏈 Flag Football News
+            <a href="/" className="flex items-center">
+              <Image
+                src="/logo.svg"
+                alt="The Flag Football Hub"
+                width={160}
+                height={60}
+                priority
+              />
             </a>
             {/* Desktop nav */}
             <nav className="hidden md:flex gap-6 text-sm font-medium">
