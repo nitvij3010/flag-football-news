@@ -49,11 +49,11 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-QR478VP32J');
           `}
         </Script>
-        <header className="bg-[#003F8A] text-white shadow-md">
+        <header className="bg-[#182c51] text-white shadow-md">
           <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
             <a href="/" className="flex items-center">
               <Image
-                src="/logo.svg"
+                src="/logo.png"
                 alt="The Flag Football Hub"
                 width={180}
                 height={68}
